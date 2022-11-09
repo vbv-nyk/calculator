@@ -77,8 +77,8 @@ window.addEventListener("keydown", (e) => {
             displayCurrent.textContent = "0";
             operator = false;
         } else if (button.className == "btn--spopr") {
-            specialOperations(e.key);
-            cur *= 10;
+            if (!firstTime)
+                specialOperations(e.key);
         }
     }
 })
