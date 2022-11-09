@@ -1,7 +1,7 @@
 "use strict";
 const displayCurrent = document.querySelector(".current");
-const displayPrevious = document.querySelector(".previous");
 const displayAnswer = document.querySelector(".ans");
+const curOpr = document.querySelector(".opr");
 let operator = false;
 let firstTime = true;
 let a = null;
@@ -48,11 +48,13 @@ window.addEventListener("keydown", (e) => {
             } else {
                 displayCurrent.textContent += button.textContent;
             }
+
             operator = true;
         } else if (button.className == "btn--opr" && operator) {
             if (a && opr) {
                 b = displayCurrent.textContent;
                 displayAnswer.textContent = calculate(a, opr, b);
+                curOpr.textContent = e.key;
             }
             cur = 1;
             if (firstTime) {
