@@ -23,5 +23,5 @@ function operator() {
     console.log(calculate(a, opr, b));
 }
 
-operator();
+// operator();
 
