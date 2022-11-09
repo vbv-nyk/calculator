@@ -2,11 +2,15 @@
 const displayCurrent = document.querySelector(".current");
 const displayAnswer = document.querySelector(".ans");
 const curOpr = document.querySelector(".opr");
+const clearDisplay = document.querySelector(`button[data-key= "CE"]`);
+const resetCalculator = document.querySelector(`button[data-key= "AC"]`);
+
 let operator = false;
 let firstTime = true;
 let a = null;
 let opr = "";
 let b = null;
+let cur = 1;
 
 
 function specialOperations(sopr) {
@@ -24,9 +28,10 @@ function specialOperations(sopr) {
             }
     }
 }
+
 function calculate(a, opr, b) {
     a = Number(a);
-    b = Number(b) || 0;
+    b = Number(b);
     switch (opr) {
         case '+':
             return a + b;
@@ -44,7 +49,6 @@ function calculate(a, opr, b) {
     }
 
 }
-let cur = 1;
 window.addEventListener("keydown", (e) => {
     const button = document.querySelector(`button[data-key="${e.key}"]`);
     if (button) {
@@ -79,3 +83,18 @@ window.addEventListener("keydown", (e) => {
     }
 })
 
+clearDisplay.addEventListener("click", () => {
+    displayCurrent.textContent = "0";
+})
+
+resetCalculator.addEventListener("click", () => {
+    let operator = false;
+    let firstTime = true;
+    let a = null;
+    let opr = "";
+    let b = null;
+    let cur = 1;
+    displayAnswer.textContent = "0";
+    displayCurrent.textContent = "0";
+    curOpr.textContent = "";
+})
