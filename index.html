@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js defer"></script>
+    <script src="script.js" defer></script>
     <title>Calculator</title>
 </head>
 
@@ -14,33 +14,34 @@
     <div class="calculator">
         <h1>Calculator</h1>
         <div class="display">
-            <p class="previous">Ans = 0</p>
-            <p class="current">1234 + 10010</p>
+            <p class="answer"> Ans = <span class="ans">0</span></p>
+            <p class="previous"></p>
+            <p class="current">0</p>
         </div>
         <div class="content-container">
             <div class="numbers">
-                <button data-key="1">1</button>
-                <button data-key="2">2</button>
-                <button data-key="3">3</button>
-                <button data-key="4">4</button>
-                <button data-key="5">5</button>
-                <button data-key="6">6</button>
-                <button data-key="7">7</button>
-                <button data-key="8">8</button>
-                <button data-key="9">9</button>
-                <button data-key="0">0</button>
-                <button data-key=".">.</button>
-                <button data-key="=">=</button>
+                <button data-key="1" class="btn--num">1</button>
+                <button data-key="2" class="btn--num">2</button>
+                <button data-key="3" class="btn--num">3</button>
+                <button data-key="4" class="btn--num">4</button>
+                <button data-key="5" class="btn--num">5</button>
+                <button data-key="6" class="btn--num">6</button>
+                <button data-key="7" class="btn--num">7</button>
+                <button data-key="8" class="btn--num">8</button>
+                <button data-key="9" class="btn--num">9</button>
+                <button data-key="0" class="btn--num">0</button>
+                <button data-key="." class="btn--num">.</button>
+                <button data-key="=" class="btn--num">=</button>
             </div>
             <div class="operators">
-                <button data-key="+">+</button>
-                <button data-key="-">-</button>
-                <button data-key="*">*</button>
-                <button data-key="/">/</button>
-                <button data-key="^">pow</button>
-                <button data-key="Backspace">DEL</button>
-                <button data-key="CE">CE</button>
-                <button data-key="AC">AC</button>
+                <button data-key="+" class="btn--opr">+</button>
+                <button data-key="-" class="btn--opr">-</button>
+                <button data-key="*" class="btn--opr">*</button>
+                <button data-key="/" class="btn--opr">/</button>
+                <button data-key="^" class="btn--opr">pow</button>
+                <button data-key="Backspace" class="btn--opr">DEL</button>
+                <button data-key="CE" class="btn--opr">CE</button>
+                <button data-key="AC" class="btn--opr">AC</button>
             </div>
         </div>
     </div>
