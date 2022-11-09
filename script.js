@@ -12,14 +12,8 @@ let b = null;
 function specialOperations(opr) {
     switch (opr) {
         case 'Backspace':
-            if (!firstTime) {
-                displayAnswer.textContent = Number(displayAnswer.textContent) - Number(displayCurrent.textContent);
-            }
             displayCurrent.textContent = displayCurrent.textContent.slice(0, -1);
             if (displayCurrent.textContent == "") displayCurrent.textContent = "0";
-            if (!firstTime) {
-                displayAnswer.textContent = Number(displayAnswer.textContent) + Number(displayCurrent.textContent);
-            }
             break;
     }
 }
@@ -54,12 +48,12 @@ window.addEventListener("keydown", (e) => {
             } else {
                 displayCurrent.textContent += button.textContent;
             }
+            operator = true;
+        } else if (button.className == "btn--opr" && operator) {
             if (a && opr) {
                 b = displayCurrent.textContent;
                 displayAnswer.textContent = calculate(a, opr, b);
             }
-            operator = true;
-        } else if (button.className == "btn--opr" && operator) {
             cur = 1;
             if (firstTime) {
                 a = displayCurrent.textContent;
