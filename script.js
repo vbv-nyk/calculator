@@ -8,9 +8,24 @@ let a = null;
 let opr = "";
 let b = null;
 
+
+function specialOperations(opr) {
+    switch (opr) {
+        case 'Backspace':
+            if (!firstTime) {
+                displayAnswer.textContent = Number(displayAnswer.textContent) - Number(displayCurrent.textContent);
+            }
+            displayCurrent.textContent = displayCurrent.textContent.slice(0, -1);
+            if (displayCurrent.textContent == "") displayCurrent.textContent = "0";
+            if (!firstTime) {
+                displayAnswer.textContent = Number(displayAnswer.textContent) + Number(displayCurrent.textContent);
+            }
+            break;
+    }
+}
 function calculate(a, opr, b) {
     a = Number(a);
-    b = Number(b);
+    b = Number(b) || 0;
     switch (opr) {
         case '+':
             return a + b;
@@ -28,10 +43,11 @@ function calculate(a, opr, b) {
     }
 
 }
-
+let cur = 1;
 window.addEventListener("keydown", (e) => {
     const button = document.querySelector(`button[data-key="${e.key}"]`);
     if (button) {
+        cur = 1;
         if (button.className == 'btn--num') {
             if (displayCurrent.textContent == "0") {
                 displayCurrent.textContent = button.textContent;
@@ -44,6 +60,7 @@ window.addEventListener("keydown", (e) => {
             }
             operator = true;
         } else if (button.className == "btn--opr" && operator) {
+            cur = 1;
             if (firstTime) {
                 a = displayCurrent.textContent;
                 firstTime = false;
@@ -52,6 +69,9 @@ window.addEventListener("keydown", (e) => {
             opr = e.key;
             displayCurrent.textContent = "0";
             operator = false;
+        } else if (button.className == "btn--spopr") {
+            specialOperations(e.key);
+            cur *= 10;
         }
     }
 })
