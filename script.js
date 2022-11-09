@@ -9,12 +9,19 @@ let opr = "";
 let b = null;
 
 
-function specialOperations(opr) {
-    switch (opr) {
+function specialOperations(sopr) {
+    switch (sopr) {
         case 'Backspace':
             displayCurrent.textContent = displayCurrent.textContent.slice(0, -1);
             if (displayCurrent.textContent == "") displayCurrent.textContent = "0";
             break;
+        case '=':
+            if (displayCurrent.textContent == '0') {
+                curOpr.textContent = "";
+            } else {
+                displayAnswer.textContent = calculate(a, opr, displayCurrent.textContent);
+                displayCurrent.textContent = "0";
+            }
     }
 }
 function calculate(a, opr, b) {
